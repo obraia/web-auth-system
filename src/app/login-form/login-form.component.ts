@@ -4,6 +4,8 @@ import { FormGroup, FormBuilder } from '@angular/forms';
 import { ApiService } from 'src/app/services/api.service';
 
 import { faUser } from '@fortawesome/free-regular-svg-icons';
+import { faCheck } from '@fortawesome/free-solid-svg-icons';
+
 import { User } from '../models/User';
 
 @Component({
@@ -17,8 +19,10 @@ export class LoginFormComponent implements OnInit {
 
   isPasswordInvalid: boolean = false;
   isUsernameInvalid: boolean = false;
+  isAuthenticated: boolean = false;
 
   faUser = faUser;
+  faCheck = faCheck;
 
   constructor(private apiService: ApiService, private formBuilder: FormBuilder) { }
 
@@ -37,9 +41,16 @@ export class LoginFormComponent implements OnInit {
   onSubmit() {
     if (this.formLogin.valid) {
       this.apiService.login(this.formLogin.value)
-      .subscribe(response => {
-          console.log(response);
-      });    
+        .subscribe(
+          res => this.isAuthenticated = true,
+          err => {
+            if (err.error == 'Incorrect password') {
+              this.isPasswordInvalid = true;
+            } else if (err.error == 'User not found') {
+              this.isUsernameInvalid = true;
+            }
+          }
+        )
     } else {
       console.log('O formulário não foi preenchido de forma válida');
     }
