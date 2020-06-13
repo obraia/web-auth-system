@@ -1,0 +1,24 @@
+<form action="" class="form" autocomplete="off" [formGroup]="formLogin" (ngSubmit)="onSubmit()">
+    <div class="form__image">
+      <fa-icon [icon]="faUser"></fa-icon>
+    </div>
+
+    <div class="form__input-group">
+      <input type="text" id="username" [class.invalid]="isUsernameInvalid" formControlName="username" required >
+      <label for="username">Nome de usuário</label>
+      <span class="form__input-group__error">Usuário inválido!</span>
+    </div>
+
+    <div class="form__input-group">
+      <input type="password" id="password" formControlName="password" [class.invalid]="isPasswordInvalid" required >
+      <label for="password">Senha</label>
+      <span class="form__input-group__error">Senha inválida!</span>
+    </div>
+
+    <div class="form__input-group--row">
+      <input type="checkbox" name="" id="remember-me" formControlName="rememberMe">
+      <label for="remember-me">Manter conectado</label>
+    </div>
+    <button class="form__button" [disabled]="!formLogin.valid">Entrar</button>
+    <a href="">Esqueci minha senha</a>
+  </form>
