@@ -1,0 +1,16 @@
+.container{    
+    height: 100vh;
+    position: fixed;
+    display: flex;
+    box-shadow: 1px 1px 4px 2px #00000010;
+
+    &__items{
+        width: 60px;
+        background-color: #0066ff;
+    }
+
+    &__sub-items{
+        width: 260px;
+        background-color: #fff;   
+    }
+}
