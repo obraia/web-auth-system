@@ -1,26 +1,41 @@
-<form action="" class="form" autocomplete="off" [formGroup]="formLogin" (ngSubmit)="onSubmit()">
-  <div class="form__image" [ngClass]="{'authSuccess animation': isAuthenticated}">
-    <fa-icon [icon]="faPencilAlt" [hidden]="isAuthenticated"></fa-icon>
-    <fa-icon [icon]="faCheck" [hidden]="!isAuthenticated"></fa-icon>
+<div class="container">
+  <div class="container__left">
+    <h1 class="container__left__title">Seja bem vindo, crie sua conta</h1>
+    <p class="container__left__text">
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus eget commodo turpis. Donec accumsan aliquet
+      molestie.
+    </p>
+    <p class="container__left__text">Já tem uma conta?</p>
+    <button class="container__left__button">Fazer login</button>
   </div>
+  <div class="container__right">
+    <form action="" class="form" autocomplete="off" [formGroup]="formLogin" (ngSubmit)="onSubmit()">
+      <div class="form__image" [ngClass]="{'authSuccess animation': isAuthenticated}">
+        <fa-icon [icon]="faPencilAlt" [hidden]="isAuthenticated"></fa-icon>
+        <fa-icon [icon]="faCheck" [hidden]="!isAuthenticated"></fa-icon>
+      </div>
 
-  <div class="form__input-group">
-    <input type="text" id="username" [class.invalid]="isUsernameInvalid" (focus)="isUsernameInvalid = false" formControlName="username" required>
-    <label for="username">Nome de usuário</label>
-    <span class="form__input-group__error">Usuário já cadastrado</span>
+      <div class="form__input-group">
+        <input type="text" id="username" [class.invalid]="isUsernameInvalid" (focus)="isUsernameInvalid = false"
+          formControlName="username" required>
+        <label for="username">Nome de usuário</label>
+        <span class="form__input-group__error">Usuário já cadastrado</span>
+      </div>
+
+      <div class="form__input-group">
+        <input type="password" id="password" [class.invalid]="isPasswordInvalid" (blur)="checkPassword()"
+          formControlName="password" required>
+        <label for="password">Senha</label>
+        <span class="form__input-group__error">Senha muito fraca</span>
+      </div>
+
+      <div class="form__input-group">
+        <input type="password" id="confirmPassword" [class.invalid]="!isPasswordConfirmed" (blur)="checkPassword()"
+          formControlName="confirmPassword" required>
+        <label for="confirmPassword">Confirmar senha</label>
+        <span class="form__input-group__error">Senhas diferentes</span>
+      </div>
+      <button class="form__button" [disabled]="!formLogin.valid || !isPasswordConfirmed">Cadastrar</button>
+    </form>
   </div>
-
-  <div class="form__input-group">
-    <input type="password" id="password" [class.invalid]="isPasswordInvalid" (blur)="checkPassword()"formControlName="password" required>
-    <label for="password">Senha</label>
-    <span class="form__input-group__error">Senha muito fraca</span>
-  </div>
-
-  <div class="form__input-group">
-    <input type="password" id="confirmPassword" [class.invalid]="!isPasswordConfirmed" (blur)="checkPassword()" formControlName="confirmPassword" required>
-    <label for="confirmPassword">Confirmar senha</label>
-    <span class="form__input-group__error">Senhas diferentes</span>
-  </div>
-
-  <button class="form__button" [disabled]="!formLogin.valid || !isPasswordConfirmed">Cadastrar</button>
-</form>
+</div>

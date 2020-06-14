@@ -1,25 +1,38 @@
-<form action="" class="form" autocomplete="off" [formGroup]="formLogin" (ngSubmit)="onSubmit()">
-  <div class="form__image" [ngClass]="{'authSuccess animation': this.isAuthenticated}">
-    <fa-icon [icon]="faUser" [hidden]="this.isAuthenticated"></fa-icon>
-    <fa-icon [icon]="faCheck" [hidden]="!this.isAuthenticated"></fa-icon>
+<div class="container">
+  <div class="container__left">
+    <h1 class="container__left__title">Olá novamente, faça o login</h1>
+    <p class="container__left__text">
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus eget commodo turpis. Donec accumsan aliquet
+      molestie.
+    </p>
+    <p class="container__left__text">Ainda não tem uma conta?</p>
+    <button class="container__left__button">Criar conta</button>
   </div>
-
-  <div class="form__input-group">
-    <input type="text" id="username" [class.invalid]="this.isUsernameInvalid" (focus)="this.isUsernameInvalid = false" formControlName="username" required>
-    <label for="username">Nome de usuário</label>
-    <span class="form__input-group__error">Usuário inválido!</span>
+  <div class="container__right">
+    <form action="" class="form" autocomplete="off" [formGroup]="formLogin" (ngSubmit)="onSubmit()">
+      <div class="form__image" [ngClass]="{'authSuccess animation': this.isAuthenticated}">
+        <fa-icon [icon]="faUser" [hidden]="this.isAuthenticated"></fa-icon>
+        <fa-icon [icon]="faCheck" [hidden]="!this.isAuthenticated"></fa-icon>
+      </div>
+    
+      <div class="form__input-group">
+        <input type="text" id="username" [class.invalid]="this.isUsernameInvalid" (focus)="this.isUsernameInvalid = false" formControlName="username" required>
+        <label for="username">Nome de usuário</label>
+        <span class="form__input-group__error">Usuário inválido!</span>
+      </div>
+    
+      <div class="form__input-group">
+        <input type="password" id="password" [class.invalid]="isPasswordInvalid" (focus)="this.isPasswordInvalid = false" formControlName="password" required>
+        <label for="password">Senha</label>
+        <span class="form__input-group__error">Senha inválida!</span>
+      </div>
+    
+      <div class="form__input-group--row">
+        <input type="checkbox" name="" id="remember-me" formControlName="rememberMe">
+        <label for="remember-me">Manter conectado</label>
+      </div>
+      <button class="form__button" [disabled]="!formLogin.valid">Entrar</button>
+      <a href="">Esqueci minha senha</a>
+    </form>
   </div>
-
-  <div class="form__input-group">
-    <input type="password" id="password" [class.invalid]="isPasswordInvalid" (focus)="this.isPasswordInvalid = false" formControlName="password" required>
-    <label for="password">Senha</label>
-    <span class="form__input-group__error">Senha inválida!</span>
-  </div>
-
-  <div class="form__input-group--row">
-    <input type="checkbox" name="" id="remember-me" formControlName="rememberMe">
-    <label for="remember-me">Manter conectado</label>
-  </div>
-  <button class="form__button" [disabled]="!formLogin.valid">Entrar</button>
-  <a href="">Esqueci minha senha</a>
-</form>
+</div>
