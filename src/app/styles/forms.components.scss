@@ -7,6 +7,15 @@
     }
 }
 
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
 .container {
     width: 100%;
     min-height: 100vh;
@@ -29,18 +38,21 @@
         color: #0066ff;
 
         &__title {
+            animation: fadeIn .5s;
             margin-bottom: 35px;
             font-size: 46px;
             text-align: center;
         }
 
         &__text {
+            animation: fadeIn 1s;
             margin-bottom: 35px;
             font-size: 22px;
             text-align: center;
         }
 
         &__button {
+            animation: fadeIn 1.5s;
             transition: background-color 0.2s;
             height: 45px;
             padding: 0 50px;
@@ -137,6 +149,7 @@
     }
 
     &__input-group {
+        animation: fadeIn .5s;
         position: relative;
         display: flex;
         flex-direction: column;
