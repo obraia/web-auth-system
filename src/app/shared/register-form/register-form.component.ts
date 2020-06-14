@@ -17,12 +17,12 @@ import { User } from '../../models/User';
 })
 export class RegisterFormComponent implements OnInit {
 
-  formLogin: FormGroup;
+  formRegister: FormGroup;
 
   isPasswordInvalid: boolean = false;
   isUsernameInvalid: boolean = false;
   isPasswordConfirmed: boolean = true;
-  isAuthenticated: boolean = false;
+  isRegistered: boolean = false;
 
   faPencilAlt = faPencilAlt;
   faCheck = faCheck;
@@ -34,7 +34,7 @@ export class RegisterFormComponent implements OnInit {
   }
 
   createForm(user: User) {
-    this.formLogin = this.formBuilder.group({
+    this.formRegister = this.formBuilder.group({
       username: [user.username],
       password: [user.password],
       confirmPassword: null
@@ -42,16 +42,16 @@ export class RegisterFormComponent implements OnInit {
   }
 
   checkPassword(){
-    this.isPasswordConfirmed = this.formLogin.value.password == this.formLogin.value.confirmPassword;
+    this.isPasswordConfirmed = this.formRegister.value.password == this.formRegister.value.confirmPassword;
   }
 
   onSubmit() {
-    if (this.formLogin.valid) {
-      this.apiService.register(this.formLogin.value)
+    if (this.formRegister.valid) {
+      this.apiService.register(this.formRegister.value)
         .subscribe(
           res => {
-            this.isAuthenticated = true;
-            console.log(res);
+            this.isRegistered = true;
+            this.formRegister.reset(new User());
           },
           err => {
             console.log(err);

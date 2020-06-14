@@ -9,10 +9,10 @@
     <button class="container__left__button" (click)="goToLogin()">Fazer login</button>
   </div>
   <div class="container__right">
-    <form action="" class="form" autocomplete="off" [formGroup]="formLogin" (ngSubmit)="onSubmit()">
-      <div class="form__image" [ngClass]="{'authSuccess animation': isAuthenticated}">
-        <fa-icon [icon]="faPencilAlt" [hidden]="isAuthenticated"></fa-icon>
-        <fa-icon [icon]="faCheck" [hidden]="!isAuthenticated"></fa-icon>
+    <form action="" class="form" autocomplete="off" [formGroup]="formRegister" (ngSubmit)="onSubmit()">
+      <div class="form__image" [ngClass]="{'authSuccess animation': isRegistered}">
+        <fa-icon [icon]="faPencilAlt" [hidden]="isRegistered"></fa-icon>
+        <fa-icon [icon]="faCheck" [hidden]="!isRegistered"></fa-icon>
       </div>
 
       <div class="form__input-group">
@@ -35,7 +35,7 @@
         <label for="confirmPassword">Confirmar senha</label>
         <span class="form__input-group__error">Senhas diferentes</span>
       </div>
-      <button class="form__button" [disabled]="!formLogin.valid || !isPasswordConfirmed">Cadastrar</button>
+      <button class="form__button" [disabled]="!formRegister.valid || !isPasswordConfirmed">Cadastrar</button>
     </form>
   </div>
 </div>
