@@ -7,14 +7,12 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { InputGroupComponent } from './input-group/input-group.component';
-import { LoginFormComponent } from './login-form/login-form.component';
-import { RegisterFormComponent } from './register-form/register-form.component';
+import { LoginFormComponent } from './shared/login-form/login-form.component';
+import { RegisterFormComponent } from './shared/register-form/register-form.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    InputGroupComponent,
     LoginFormComponent,
     RegisterFormComponent
   ],

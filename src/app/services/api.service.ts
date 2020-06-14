@@ -24,6 +24,14 @@ export class ApiService {
     );
   }
 
+  register(user: User) {
+    return this.http.post<any>(this.url + '/register', user).pipe(
+      catchError((err) => {
+        return throwError(err);
+      })
+    );
+  }
+
   deleteUser(username: String) {
     return this.http.delete<any>(this.url + `/users/${username}`);
   }

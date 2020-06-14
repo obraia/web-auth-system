@@ -93,7 +93,8 @@
   }
 }
 
-.container__form {
+// pegar elemento abaixo da tag rota
+router-outlet + ::ng-deep * {
   width: 80%;
   height: 100%;
 
