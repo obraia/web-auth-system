@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder } from '@angular/forms';
+import { Router } from '@angular/router';
 
 import { ApiService } from 'src/app/services/api.service';
 
@@ -26,7 +27,7 @@ export class RegisterFormComponent implements OnInit {
   faPencilAlt = faPencilAlt;
   faCheck = faCheck;
 
-  constructor(private apiService: ApiService, private formBuilder: FormBuilder) { }
+  constructor(private apiService: ApiService, private formBuilder: FormBuilder, private router: Router) { }
 
   ngOnInit(): void {
     this.createForm(new User());
@@ -62,4 +63,7 @@ export class RegisterFormComponent implements OnInit {
     }
   }
 
+  goToLogin(){
+    this.router.navigateByUrl('/login');
+  }
 }

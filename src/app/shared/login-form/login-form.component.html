@@ -6,7 +6,7 @@
       molestie.
     </p>
     <p class="container__left__text">Ainda não tem uma conta?</p>
-    <button class="container__left__button">Criar conta</button>
+    <button class="container__left__button" (click)="goToRegister()">Criar conta</button>
   </div>
   <div class="container__right">
     <form action="" class="form" autocomplete="off" [formGroup]="formLogin" (ngSubmit)="onSubmit()">
