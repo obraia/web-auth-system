@@ -43,9 +43,9 @@ export class LoginFormComponent implements OnInit {
     if (this.formLogin.valid) {
       this.apiService.login(this.formLogin.value)
         .subscribe(
-          res => {
+          async res => {
             this.isAuthenticated = true;
-            console.log(res);
+            this.goToDashboard(res);
           },
           err => {
             if (err.error == 'Incorrect password') {
@@ -60,5 +60,9 @@ export class LoginFormComponent implements OnInit {
 
   goToRegister(){
     this.router.navigateByUrl('/register');
+  }
+
+  async goToDashboard(user: User){
+    this.router.navigateByUrl('/dashboard', {state: user, replaceUrl: true });
   }
 }
