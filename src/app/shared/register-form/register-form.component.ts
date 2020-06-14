@@ -6,13 +6,13 @@ import { ApiService } from 'src/app/services/api.service';
 import { faPencilAlt } from '@fortawesome/free-solid-svg-icons';
 import { faCheck } from '@fortawesome/free-solid-svg-icons';
 
-import { User } from '../models/User';
+import { User } from '../../models/User';
 
 
 @Component({
   selector: 'app-register-form',
   templateUrl: './register-form.component.html',
-  styleUrls: ['../forms.component.scss']
+  styleUrls: ['../../styles/forms.components.scss']
 })
 export class RegisterFormComponent implements OnInit {
 

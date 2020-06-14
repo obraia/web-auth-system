@@ -6,12 +6,12 @@ import { ApiService } from 'src/app/services/api.service';
 import { faUser } from '@fortawesome/free-regular-svg-icons';
 import { faCheck } from '@fortawesome/free-solid-svg-icons';
 
-import { User } from '../models/User';
+import { User } from '../../models/User';
 
 @Component({
   selector: 'app-login-form',
   templateUrl: './login-form.component.html',
-  styleUrls: ['../forms.component.scss']
+  styleUrls: ['../../styles/forms.components.scss']
 })
 export class LoginFormComponent implements OnInit {
 
